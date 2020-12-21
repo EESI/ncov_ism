@@ -339,13 +339,13 @@ ISM abundance table is constructed for regions with more than 150 submissions. W
 
 
 ## The dynamic of ISM in different locations
-1. The relative abundance (%) of ISMs in DNA sequences from Mainland China as sampled over time.
+1. The relative abundance (%) of ISMs in DNA sequences from the United Kingdom as sampled over time.
 
-<img src="results/3_ISM_growth_Mainland China.png" alt="China" width="800"/>
+<img src="results/3_ISM_growth_United Kingdom.png" alt="UK" width="800"/>
 
-2. The relative abundance (%) of ISMs in DNA sequences from Japan as sampled over time.
+2. The relative abundance (%) of ISMs in DNA sequences from France as sampled over time.
 
-<img src="results/3_ISM_growth_Japan.png" alt="Japan" width="800"/>
+<img src="results/3_ISM_growth_France.png" alt="France" width="800"/>
 
 3. The relative abundance (%) of ISMs in DNA sequences from the USA as sampled over time.
 
