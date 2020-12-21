@@ -4,7 +4,7 @@ Drexel University EESI Lab, 2020
 Maintainer: Zhengqiao Zhao, zz374 at drexel dot edu  
 Owner: Gail Rosen, gailr at ece dot drexel dot edu  
 
-**Report created on 2020/11/26**
+**Report created on 2020/12/17**
 <!--- dividing line --->
 
 ## Abstract
@@ -30,45 +30,45 @@ A few covarying positions are identified
   <tbody>
     <tr>
       <td>241;3037;14408;23403</td>
-      <td>0.968339</td>
+      <td>0.968669</td>
       <td>TTTG;CCCA</td>
       <td>23403</td>
     </tr>
     <tr>
       <td>28881;28882;28883</td>
-      <td>0.991692</td>
+      <td>0.991834</td>
       <td>GGG;AAC</td>
       <td>28881</td>
     </tr>
     <tr>
-      <td>1163;7540;16647;18555;22992;23401</td>
-      <td>0.949558</td>
-      <td>ATGCGG;TCTTAA</td>
-      <td>1163</td>
-    </tr>
-    <tr>
-      <td>10097;18877;23731;27964</td>
-      <td>0.927410</td>
-      <td>GCCC;GTCC</td>
-      <td>18877</td>
+      <td>8782;28144</td>
+      <td>0.992664</td>
+      <td>CT;TC</td>
+      <td>8782</td>
     </tr>
     <tr>
       <td>445;6286;21255;22227;26801;28932;29645</td>
-      <td>0.950410</td>
+      <td>0.947959</td>
       <td>TCGCCCG;CTCTGTT</td>
       <td>26801</td>
     </tr>
     <tr>
       <td>204;21614;27944</td>
-      <td>0.923376</td>
+      <td>0.912164</td>
       <td>GCC;TTT</td>
       <td>27944</td>
     </tr>
     <tr>
-      <td>8782;28144</td>
-      <td>0.992779</td>
-      <td>CT;TC</td>
-      <td>8782</td>
+      <td>1163;7540;16647;18555;22992;23401</td>
+      <td>0.945125</td>
+      <td>ATGCGG;TCTTAA</td>
+      <td>22992</td>
+    </tr>
+    <tr>
+      <td>10097;18877;23731;27964</td>
+      <td>0.928251</td>
+      <td>GCCC;GTCC</td>
+      <td>18877</td>
     </tr>
   </tbody>
 </table>
@@ -91,223 +91,223 @@ The following table shows the annotations of ISM sites using the reference viral
   <tbody>
     <tr>
       <td>204</td>
-      <td>0.436420</td>
+      <td>0.518236</td>
       <td>Non-coding</td>
       <td>True</td>
     </tr>
     <tr>
       <td>241</td>
-      <td>0.481270</td>
+      <td>0.437926</td>
       <td>Non-coding</td>
       <td>True</td>
     </tr>
     <tr>
       <td>445</td>
-      <td>0.598714</td>
+      <td>0.699622</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>1059</td>
-      <td>0.623563</td>
+      <td>0.611612</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>1163</td>
-      <td>0.371014</td>
+      <td>0.348999</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>3037</td>
-      <td>0.484313</td>
+      <td>0.441958</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>6286</td>
-      <td>0.603329</td>
+      <td>0.704537</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>7540</td>
-      <td>0.302264</td>
+      <td>0.277521</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>8782</td>
-      <td>0.221724</td>
+      <td>0.204873</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>10097</td>
-      <td>0.219105</td>
+      <td>0.199889</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>11083</td>
-      <td>0.418454</td>
+      <td>0.399545</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>14408</td>
-      <td>0.490348</td>
+      <td>0.446168</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>14805</td>
-      <td>0.254431</td>
+      <td>0.238787</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>16647</td>
-      <td>0.308805</td>
+      <td>0.284093</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>18555</td>
-      <td>0.311327</td>
+      <td>0.287815</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>18877</td>
-      <td>0.283582</td>
+      <td>0.302122</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>20268</td>
-      <td>0.358983</td>
+      <td>0.360070</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>21255</td>
-      <td>0.616133</td>
+      <td>0.714805</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>21614</td>
-      <td>0.374448</td>
+      <td>0.446046</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>22227</td>
-      <td>0.605842</td>
+      <td>0.706328</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>22992</td>
-      <td>0.361434</td>
+      <td>0.353650</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>23401</td>
-      <td>0.311559</td>
+      <td>0.291154</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>23403</td>
-      <td>0.483584</td>
+      <td>0.440111</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>23731</td>
-      <td>0.209044</td>
+      <td>0.190142</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>24334</td>
-      <td>0.204685</td>
+      <td>0.254807</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>25563</td>
-      <td>0.773006</td>
+      <td>0.770475</td>
       <td>YP_009724391.1: ORF3a protein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>26735</td>
-      <td>0.238938</td>
+      <td>0.260693</td>
       <td>YP_009724393.1: membrane glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>26801</td>
-      <td>0.619499</td>
+      <td>0.723374</td>
       <td>YP_009724393.1: membrane glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>27944</td>
-      <td>0.489863</td>
+      <td>0.580347</td>
       <td>YP_009724396.1: ORF8 protein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>27964</td>
-      <td>0.218465</td>
+      <td>0.227699</td>
       <td>YP_009724396.1: ORF8 protein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28144</td>
-      <td>0.219614</td>
+      <td>0.203296</td>
       <td>YP_009724396.1: ORF8 protein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28854</td>
-      <td>0.292246</td>
+      <td>0.310582</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28881</td>
-      <td>0.967567</td>
+      <td>0.950279</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28882</td>
-      <td>0.963758</td>
+      <td>0.946885</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>28883</td>
-      <td>0.963357</td>
+      <td>0.947162</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28932</td>
-      <td>0.600192</td>
+      <td>0.701543</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>29645</td>
-      <td>0.602767</td>
+      <td>0.704076</td>
       <td>YP_009725255.1: ORF10 protein</td>
       <td>False</td>
     </tr>
@@ -343,9 +343,9 @@ ISM abundance table is constructed for regions with more than 150 submissions. W
 
 <img src="results/3_ISM_growth_Mainland China.png" alt="China" width="800"/>
 
-2. The relative abundance (%) of ISMs in DNA sequences from France as sampled over time.
+2. The relative abundance (%) of ISMs in DNA sequences from Japan as sampled over time.
 
-<img src="results/3_ISM_growth_France.png" alt="France" width="800"/>
+<img src="results/3_ISM_growth_Japan.png" alt="Japan" width="800"/>
 
 3. The relative abundance (%) of ISMs in DNA sequences from the USA as sampled over time.
 

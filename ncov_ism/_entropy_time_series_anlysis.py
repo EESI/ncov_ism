@@ -33,7 +33,7 @@ def entropy_time_series_analysis(INPUT_FOLDER, OUTPUT_FOLDER, REFERENCE_ID):
     start = datetime.datetime.strptime('2019-12-24', "%Y-%m-%d")
     time_list = []
     while FLAG:
-        end = start + datetime.timedelta(days=7)
+        end = start + datetime.timedelta(days=14)
         time_list.append((str(start.date()), str(end.date())))
         start = end
         if end.date() > MAX_DATE:

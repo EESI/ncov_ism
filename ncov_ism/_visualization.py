@@ -300,6 +300,9 @@ def regional_growth_plot(region, ISM_df, REFERENCE_date, count_list, date_list, 
     NONOTHER = len(ISM_regional_list)
     if 'OTHER' in ISM_regional_set:
         ISM_regional_list.append('OTHER')
+    
+    to_plot = []
+    ISM_to_plot_list = []
     for ISM in ISM_regional_list:
         ISM_regional_growth = []
             
@@ -316,8 +319,20 @@ def regional_growth_plot(region, ISM_df, REFERENCE_date, count_list, date_list, 
                         ISM_regional_growth.append(0)
                 else:
                     ISM_regional_growth.append(0)
-        ax.plot(ISM_regional_growth, color = COLOR_DICT[ISM], label = ISM, linewidth = 4, marker = 'o', markersize = 4)
-
+        to_plot.append(ISM_regional_growth)
+        ISM_to_plot_list.append(ISM)
+        # ax.plot(ISM_regional_growth, color = COLOR_DICT[ISM], label = ISM, linewidth = 4, marker = 'o', markersize = 4)
+    
+    to_plot = np.row_stack(to_plot)
+    y_stack = np.cumsum(to_plot, axis=0)
+    x = np.arange(y_stack.shape[1])
+    for i in range(y_stack.shape[0]):
+        ISM = ISM_to_plot_list[i]
+        if i == 0:
+            ax.fill_between(x, 0, y_stack[i,:], facecolor=COLOR_DICT[ISM], alpha=.5, label = ISM)
+        else:
+            ax.fill_between(x, y_stack[i-1], y_stack[i,:], facecolor=COLOR_DICT[ISM], alpha=.5, label = ISM)
+    
     major_ticks = np.arange(0, len(date_list), 5)
     minor_ticks = np.arange(0, len(date_list))
     major_label = []
