@@ -4,7 +4,7 @@ Drexel University EESI Lab, 2020
 Maintainer: Zhengqiao Zhao, zz374 at drexel dot edu  
 Owner: Gail Rosen, gailr at ece dot drexel dot edu  
 
-**Report created on 2020/12/17**
+**Report created on 2021/02/02**
 <!--- dividing line --->
 
 ## Abstract
@@ -29,46 +29,58 @@ A few covarying positions are identified
   </thead>
   <tbody>
     <tr>
-      <td>241;3037;14408;23403</td>
-      <td>0.968669</td>
-      <td>TTTG;CCCA</td>
-      <td>23403</td>
-    </tr>
-    <tr>
       <td>28881;28882;28883</td>
-      <td>0.991834</td>
+      <td>0.991934</td>
       <td>GGG;AAC</td>
       <td>28881</td>
     </tr>
     <tr>
-      <td>8782;28144</td>
-      <td>0.992664</td>
-      <td>CT;TC</td>
-      <td>8782</td>
-    </tr>
-    <tr>
       <td>445;6286;21255;22227;26801;28932;29645</td>
-      <td>0.947959</td>
+      <td>0.947184</td>
       <td>TCGCCCG;CTCTGTT</td>
       <td>26801</td>
     </tr>
     <tr>
       <td>204;21614;27944</td>
-      <td>0.912164</td>
+      <td>0.898983</td>
       <td>GCC;TTT</td>
       <td>27944</td>
     </tr>
     <tr>
+      <td>913;3267;5388;5986;6954;14676;15279;16176;2306...</td>
+      <td>0.901591</td>
+      <td>CCCCTCCTACCCCTGCGAGATC;TTATCTTCTAATCGCTTGCTAT</td>
+      <td>23604</td>
+    </tr>
+    <tr>
       <td>1163;7540;16647;18555;22992;23401</td>
-      <td>0.945125</td>
+      <td>0.938080</td>
       <td>ATGCGG;TCTTAA</td>
       <td>22992</td>
     </tr>
     <tr>
-      <td>10097;18877;23731;27964</td>
-      <td>0.928251</td>
-      <td>GCCC;GTCC</td>
-      <td>18877</td>
+      <td>10097;23731</td>
+      <td>0.996828</td>
+      <td>GC;AT</td>
+      <td>10097</td>
+    </tr>
+    <tr>
+      <td>18877;27964;28854</td>
+      <td>0.889275</td>
+      <td>CCC;CTC</td>
+      <td>28854</td>
+    </tr>
+    <tr>
+      <td>8782;28144</td>
+      <td>0.993198</td>
+      <td>CT;TC</td>
+      <td>8782</td>
+    </tr>
+    <tr>
+      <td>241;3037;14408;23403</td>
+      <td>0.973077</td>
+      <td>TTTG;CCCA</td>
+      <td>23403</td>
     </tr>
   </tbody>
 </table>
@@ -91,223 +103,349 @@ The following table shows the annotations of ISM sites using the reference viral
   <tbody>
     <tr>
       <td>204</td>
-      <td>0.518236</td>
+      <td>0.600872</td>
       <td>Non-coding</td>
       <td>True</td>
     </tr>
     <tr>
       <td>241</td>
-      <td>0.437926</td>
+      <td>0.327798</td>
       <td>Non-coding</td>
       <td>True</td>
     </tr>
     <tr>
       <td>445</td>
-      <td>0.699622</td>
+      <td>0.800201</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>913</td>
+      <td>0.362935</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>1059</td>
-      <td>0.611612</td>
+      <td>0.627709</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>1163</td>
-      <td>0.348999</td>
+      <td>0.262509</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>3037</td>
-      <td>0.441958</td>
+      <td>0.330777</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>3267</td>
+      <td>0.367061</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>5388</td>
+      <td>0.361585</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>5986</td>
+      <td>0.374293</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>6286</td>
-      <td>0.704537</td>
+      <td>0.804308</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
+      <td>6954</td>
+      <td>0.363575</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
       <td>7540</td>
-      <td>0.277521</td>
+      <td>0.197486</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>8782</td>
-      <td>0.204873</td>
+      <td>0.151998</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>10097</td>
-      <td>0.199889</td>
+      <td>0.165350</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>11083</td>
-      <td>0.399545</td>
+      <td>0.352021</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>14408</td>
-      <td>0.446168</td>
+      <td>0.333818</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>False</td>
     </tr>
     <tr>
+      <td>14676</td>
+      <td>0.368721</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>True</td>
+    </tr>
+    <tr>
       <td>14805</td>
-      <td>0.238787</td>
+      <td>0.228778</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>15279</td>
+      <td>0.364136</td>
+      <td>YP_009724389.1: ORF1ab polyprotein</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>16176</td>
+      <td>0.361970</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>16647</td>
-      <td>0.284093</td>
+      <td>0.205341</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>18555</td>
-      <td>0.287815</td>
+      <td>0.213862</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>18877</td>
-      <td>0.302122</td>
+      <td>0.327941</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>20268</td>
-      <td>0.360070</td>
+      <td>0.390456</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>21255</td>
-      <td>0.714805</td>
+      <td>0.816114</td>
       <td>YP_009724389.1: ORF1ab polyprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>21614</td>
-      <td>0.446046</td>
+      <td>0.504229</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>22227</td>
-      <td>0.706328</td>
+      <td>0.803554</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>22992</td>
-      <td>0.353650</td>
+      <td>0.325385</td>
+      <td>YP_009724390.1: surface glycoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>23063</td>
+      <td>0.379714</td>
+      <td>YP_009724390.1: surface glycoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>23271</td>
+      <td>0.364818</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>23401</td>
-      <td>0.291154</td>
+      <td>0.215601</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>23403</td>
-      <td>0.440111</td>
+      <td>0.328119</td>
+      <td>YP_009724390.1: surface glycoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>23604</td>
+      <td>0.398903</td>
+      <td>YP_009724390.1: surface glycoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>23709</td>
+      <td>0.364862</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>23731</td>
-      <td>0.190142</td>
+      <td>0.147387</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>24334</td>
-      <td>0.254807</td>
+      <td>0.276680</td>
       <td>YP_009724390.1: surface glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
+      <td>24506</td>
+      <td>0.362065</td>
+      <td>YP_009724390.1: surface glycoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>24914</td>
+      <td>0.366751</td>
+      <td>YP_009724390.1: surface glycoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
       <td>25563</td>
-      <td>0.770475</td>
+      <td>0.803961</td>
       <td>YP_009724391.1: ORF3a protein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>26735</td>
-      <td>0.260693</td>
+      <td>0.296868</td>
       <td>YP_009724393.1: membrane glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>26801</td>
-      <td>0.723374</td>
+      <td>0.845113</td>
       <td>YP_009724393.1: membrane glycoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>27944</td>
-      <td>0.580347</td>
+      <td>0.654932</td>
       <td>YP_009724396.1: ORF8 protein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>27964</td>
-      <td>0.227699</td>
+      <td>0.320243</td>
+      <td>YP_009724396.1: ORF8 protein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>27972</td>
+      <td>0.363867</td>
+      <td>YP_009724396.1: ORF8 protein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>28048</td>
+      <td>0.361900</td>
+      <td>YP_009724396.1: ORF8 protein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>28111</td>
+      <td>0.361117</td>
       <td>YP_009724396.1: ORF8 protein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28144</td>
-      <td>0.203296</td>
+      <td>0.150106</td>
       <td>YP_009724396.1: ORF8 protein</td>
       <td>False</td>
     </tr>
     <tr>
+      <td>28280</td>
+      <td>0.368327</td>
+      <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>28281</td>
+      <td>0.360936</td>
+      <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>28282</td>
+      <td>0.362545</td>
+      <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
       <td>28854</td>
-      <td>0.310582</td>
+      <td>0.348248</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28881</td>
-      <td>0.950279</td>
+      <td>0.940754</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28882</td>
-      <td>0.946885</td>
+      <td>0.936498</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>True</td>
     </tr>
     <tr>
       <td>28883</td>
-      <td>0.947162</td>
+      <td>0.936610</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>28932</td>
-      <td>0.701543</td>
+      <td>0.800105</td>
+      <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>28977</td>
+      <td>0.373717</td>
       <td>YP_009724397.2: nucleocapsid phosphoprotein</td>
       <td>False</td>
     </tr>
     <tr>
       <td>29645</td>
-      <td>0.704076</td>
+      <td>0.802626</td>
       <td>YP_009725255.1: ORF10 protein</td>
       <td>False</td>
     </tr>

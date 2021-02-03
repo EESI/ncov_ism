@@ -4,10 +4,10 @@ import json
 import pandas as pd
 from ._loaddata import load_data
 from ._pickism import entropy_analysis, pick_ISM_spots, annotate_ISM, ISM_disambiguation
-from ._entropy_time_series_anlysis import entropy_time_series_analysis
+from ._entropy_time_series_anlysis import entropy_time_series_analysis, entropy_time_series_analysis_fast
 from ._analyzeism import ISM_analysis, customized_ISM_analysis
 from ._visualization import ISM_visualization, ISM_plot, customized_ISM_visualization, customized_ISM_plot
-from .build_ism import build_ISM, build_from_existing
+from .build_ism import build_ISM, build_ISM_subset, build_from_existing
 from ._abundancetable import region_pca_plot
 from .CustomizedISM import CustomizedISM
 logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
@@ -68,6 +68,12 @@ def main():
                         required=True, type=str)
     default_parser.add_argument("-o", metavar="output",
                         help="Path to the output directory",
+                        required=True, type=str)
+    default_parser.add_argument("--start", metavar="start date",
+                        help="start date of sequence submission date to be included in the analysis",
+                        required=True, type=str)
+    default_parser.add_argument("--end", metavar="end date",
+                        help="end date of sequence submission date to be included in the analysis",
                         required=True, type=str)
     # ents
     ents_parser = subparsers.add_parser("ents")
@@ -191,13 +197,17 @@ def main():
         MSA_FILE_NAME = args.i
         META_FILE_NAME = args.m
         OUTPUT_FOLDER = args.o
+        start_date = args.start
+        end_date = args.end
         reference_genbank_name = 'data/covid-19-genbank.gb'
         REFERENCE_ID = 'EPI_ISL_402125'
-        en_thres = 0.2
+        en_thres = 0.7
         null_thres = 0.25
-        ISM_df = build_ISM(MSA_FILE_NAME, META_FILE_NAME, reference_genbank_name, OUTPUT_FOLDER, 
+        # ISM_df = build_ISM(MSA_FILE_NAME, META_FILE_NAME, start_date, end_date, reference_genbank_name, OUTPUT_FOLDER, 
+        #            REFERENCE_ID, en_thres, null_thres)
+        ISM_df, positions = build_ISM_subset(MSA_FILE_NAME, META_FILE_NAME, start_date, end_date, reference_genbank_name, OUTPUT_FOLDER, 
                    REFERENCE_ID, en_thres, null_thres)
-        entropy_time_series_analysis(OUTPUT_FOLDER, OUTPUT_FOLDER, REFERENCE_ID)
+        entropy_time_series_analysis_fast(positions, OUTPUT_FOLDER, OUTPUT_FOLDER, REFERENCE_ID)
         
         region_raw_count, state_raw_count, count_dict = ISM_analysis(ISM_df, OUTPUT_FOLDER)
         

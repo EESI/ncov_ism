@@ -73,6 +73,36 @@ def entropy_analysis(data_df):
     logging.info('Entropy analysis in progress: DONE.')
     return H_list, null_freq_list
 
+def entropy_analysis_customized(data_df, positions):
+    """
+    Masked Shannon entropy analysis for sequences
+    Parameters
+    ----------
+    data_df: pandas.DataFrame
+        merged Pandas dataframe
+    Returns
+    -------
+    H_list: list
+        entropy values for all positions
+    null_freq_list: list
+        masked percentage for all positions
+    """
+    seq_list = data_df['sequence'].values.tolist()
+    base_set = set([])
+    for seq in seq_list:
+        base_set.update(set(seq))
+    H_list = {}
+    null_freq_list = {}
+    STEP = ceil(len(positions) / 10)
+    for base_idx in range(len(positions)):
+        if base_idx % STEP == 0:
+            logging.info('Entropy analysis in progress: {}% completed.'.format(10 * base_idx // STEP))
+        H, null_freq = base_entropy_masked(seq_list, base_set, positions[base_idx])
+        H_list[positions[base_idx]] = H
+        null_freq_list[positions[base_idx]] = null_freq
+    logging.info('Entropy analysis in progress: DONE.')
+    return H_list, null_freq_list
+
 def pick_ISM_spots(H_list, null_freq_list, en_thres=0.2, null_thres=0.25):
     """
     Pick Informative Subtype Markers based on masked Shannon entropy

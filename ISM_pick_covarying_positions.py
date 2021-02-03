@@ -43,6 +43,15 @@ for base in REFERENCE[1]:
         seq_index.append(index)
 reference_local_index_map = np.array(seq_index)
 
+REF_to_POS = {}
+REF_IDX = 0
+for idx, base in enumerate(REFERENCE[1]):
+    if base == '-':
+        REF_to_POS[REF_IDX] = idx
+    else:
+        REF_IDX += 1
+        REF_to_POS[REF_IDX] = idx
+
 def pick_ISM_sites_customized(H_list, positions):
     '''
     pick ISM sites
@@ -57,12 +66,9 @@ def pick_ISM_sites_customized(H_list, positions):
 [H_list, null_freq_list] = pickle.load(open('{}/ENTS_{}_{}.pkl'.format(INPUT_FOLDER, '2019-12-24', time_list[-1][1]), 'rb'))
 annotation_df = pd.read_csv('{}/ISM_annotation.txt'.format(INPUT_FOLDER))
 
-en_thres = min(annotation_df['Entropy']) - 0.0001
-null_thres = 0.25
-tmp = np.where((np.array(H_list) > en_thres) & (null_freq_list < null_thres))[0]
-print(tmp.shape[0])
-position_list = [base_idx for base_idx in tmp]
-ref_position_list = [reference_local_index_map[idx] for idx in position_list]
+ref_position_list = list(annotation_df['Ref position'])
+
+position_list = sorted(H_list.keys())
 entropy_pairs = {reference_local_index_map[idx]:H_list[idx] for idx in position_list}
 
 X_en_cul = {}
