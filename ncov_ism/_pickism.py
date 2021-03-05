@@ -3,6 +3,7 @@ import json
 import datetime
 import pandas as pd
 import numpy as np
+import itertools
 from collections import Counter, OrderedDict
 from math import log2, ceil
 from Bio import SeqIO
@@ -200,14 +201,15 @@ def find_SNP(position, gene_dict, reference_raw):
             # python 0 indexed position
             delta = position -1 - key[0]
             condon_idx = delta % 3
+            condon_pos = delta // 3 + 1
             full_codon = delta - condon_idx
             name, seq = gene_dict[(start, end)]
             
             if int(full_codon/3) >= len(seq):
-                return None, None, name
+                return None, None, name, None
             codon = cDNA[full_codon:full_codon+3]
-            return codon, condon_idx, name
-    return None, None, None
+            return codon, condon_idx, name, condon_pos
+    return None, None, None, None
 
 def load_gene_dict(reference_genbank_name="data/covid-19-genbank.gb"):
     """
@@ -288,8 +290,9 @@ def annotate_ISM(data_df, REFERENCE, position_list, reference_genbank_name="data
     res['Entropy'] = []
     res['Gene'] = []
     res['Is silent'] = []
+    res['AA position'] = []
     for align_index, ref_index, entropy in mapped_reference_index:
-        codon, codon_idx, name = find_SNP(ref_index, gene_dict, reference_raw)
+        codon, codon_idx, name, codon_pos = find_SNP(ref_index, gene_dict, reference_raw)
         base_freq = Counter([item[align_index] for item in seq_list]).most_common()
         for alt_base, count in base_freq:
             if alt_base != reference_raw[ref_index-1]:
@@ -312,6 +315,10 @@ def annotate_ISM(data_df, REFERENCE, position_list, reference_genbank_name="data
             name = 'Non-coding'
         res['Gene'].append(name)
         res['Is silent'].append(if_silence)
+        if codon_pos is None:
+            res['AA position'].append('NaN')
+        else:
+            res['AA position'].append('{}{}{}'.format(ref_aa, codon_pos, ism_aa))
     annotation_df = pd.DataFrame.from_dict(res)
     return annotation_df
 
@@ -538,3 +545,92 @@ def ISM_disambiguation(ISM_df, THRESHOLD=0):
     logging.info('ISM Disambiguation: percentage of records (submissions) partially corrected: {}'.format(partial_subj/total_subj))
     logging.info('ISM Disambiguation: percentage of records (submissions) completely corrected: {}'.format(full_subj/total_subj))
     return ISM_error_correction_partial, ISM_error_correction_full
+
+
+def ISM_disambiguate_fast(ism_list):
+    '''Returns a dictionary mapping each distinct ISM to the corresponding disambiguated ISM, or if
+    no disambiguation could be identified or it was already unambiguous, itself.
+    If ismlist is a list nd not a set, then it instead returns a list of corrected ISMs,
+    corresponding in order to original list of ISMs.
+    '''
+    if type(ism_list) is list:
+        return_list = True
+    else:
+        return_list = False
+
+    ism_set = set(ism_list)
+    ismlen = len(next(iter(ism_list)))  # assume all ISMs are the same length
+
+
+    ism_clean = set(); ism_toclean = set()
+    # Create mask vectors for each ISM that is set to True if ACTG or gap vs. False if an ambiguous base,
+    # and separate ISMs in the ones that ar e clean and the ones that are ambiguous.
+    ism_mask_map = {}
+    for ism in ism_set:
+        ism_mask = [False]*ismlen
+        for m in range(ismlen):
+            if ism[m] in 'ACTG-':
+                ism_mask[m] = True
+        if any(ism_mask):
+            ism_toclean.add(ism)
+        else:
+            ism_clean.add(ism)
+        ism_mask_map[ism] = ism_mask
+
+    ism_disamb = {}
+    # assign all of the clean ISMs to themselves (i.e. they translate to themselves)
+    # it is a one-element array since other ISMs may translate to multiple clean ISMs
+    for ism in ism_clean:
+        ism_disamb[ism] = ism
+
+
+    def hamming_distance(string1, string2):
+        # Return the Hamming distance between string1 and string2 of same length.
+        distance = 0
+        for i in range(len(string1)):
+            if string1[i] != string2[i]:
+                distance += 1
+        # Return the final count of differences
+        return distance
+
+
+    # Find the Hamming distance of the ISM to each of the other ISMs
+    # This means that *any* ISM, including one with ambiguous bases itself, may be a support
+    HDist_Map = {}           # Dictionary where HDist_Map[ISM1][ISM2] = distance(ISM1,ISM2)
+    for ism in ism_toclean:
+        HDist_Map[ism] = {}
+    # First, find all the binary distances between the ISMs that are to be cleaned
+    for ismpair in itertools.combinations(ism_toclean, 2):
+        HDist_Map[ismpair[0]][ismpair[1]] = hamming_distance(ismpair[0], ismpair[1])
+        HDist_Map[ismpair[1]][ismpair[0]] = HDist_Map[ismpair[0]][ismpair[1]]
+    # Second, find all the binary distances between each ISM to be cleaned with each clean ISM
+    for ism in ism_toclean:
+        for ismref in ism_clean:
+            HDist_Map[ism][ismref] = hamming_distance(ism, ismref)
+
+    for ism in ism_toclean:
+        min_h_dist = min(HDist_Map[ism].values())
+        min_hd = [key for key in HDist_Map[ism] if HDist_Map[ism][key]==min_h_dist]
+        support = set(min_hd)
+        # For each ambiguous base position in the ISM, see if there is a consensus among support set members
+        # who have an ambiguity at that location.
+        # Select the ambiguous base positions:
+        amb_ntpos = set(itertools.compress(range(len(ism_mask_map[ism])), [not(m) for m in ism_mask_map[ism]]))
+        # Identify the non-ambiguous bases in support ISMs at each of these positions. Once identified, overwrite
+        # the position in a new disambiguated ISM:
+        ism_new = ism
+        for ntpos in amb_ntpos:
+            supportbases = [supportism[ntpos] for supportism in support if ism_mask_map[supportism][ntpos]]
+            if len(supportbases) == 0:
+                # no valid bases at that position in any support ISMs
+                pass
+            elif supportbases.count(supportbases[0]) == len(supportbases):
+                # then all of the bases in support ISMs are identical; replace the ambiguous base
+                ism_new = ism_new[:ntpos] + supportbases[0] + ism_new[ntpos+1:]
+        ism_disamb[ism] = ism_new
+
+    if return_list:
+        return [ism_disamb[ism] for ism in ism_list]
+    else:
+        return ism_disamb
+
